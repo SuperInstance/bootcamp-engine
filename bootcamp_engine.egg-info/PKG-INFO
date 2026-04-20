@@ -1,0 +1,36 @@
+Metadata-Version: 2.4
+Name: bootcamp-engine
+Version: 0.1.0
+Summary: 4-phase greenhorn curriculum — Read → Analyze → Build → Specialist. The dojo as code.
+Author-email: Oracle1 <oracle1@cocapn.ai>
+License-Expression: MIT
+Project-URL: Homepage, https://github.com/SuperInstance/bootcamp-engine
+Keywords: bootcamp,curriculum,training,dojo,cocapn
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+
+# bootcamp-engine
+
+4-phase greenhorn curriculum: **Read → Analyze → Build → Specialist**. The dojo as code.
+
+Like teaching a greenhorn on a fishing boat: no rulebook, just time on deck. Agents progress through phases by completing assignments and maintaining a passing GPA. Promotions are earned, not given.
+
+## Usage
+
+```python
+from bootcamp_engine import Bootcamp, Phase, Assignment
+
+camp = Bootcamp()
+horn = camp.enroll("agent-x")
+
+camp.assign(horn, Assignment(id="r1", phase=Phase.READ, description="Read the codebase"))
+camp.grade_assignment(horn, "r1", score=0.85, feedback="Good comprehension")
+
+if horn.promotion_ready():
+    camp.promote(horn)  # READ → ANALYZE
+```
+
+Zero deps. `pip install bootcamp-engine`
